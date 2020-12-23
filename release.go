@@ -16,11 +16,11 @@ type ReleaseArch struct {
 // ReleaseMedia contains details about various images we ship
 type ReleaseMedia struct {
 	Aliyun       *ReleasePlatformBase `json:"aliyun"`
-	Aws          *ReleaseAws          `json:"aws"`
+	Aws          *ReleasePlatformAws  `json:"aws"`
 	Azure        *ReleasePlatformBase `json:"azure"`
 	Digitalocean *ReleasePlatformBase `json:"digitalocean"`
 	Exoscale     *ReleasePlatformBase `json:"exoscale"`
-	Gcp          *ReleaseGcp          `json:"gcp"`
+	Gcp          *ReleasePlatformGcp  `json:"gcp"`
 	Ibmcloud     *ReleasePlatformBase `json:"ibmcloud"`
 	Metal        *ReleasePlatformBase `json:"metal"`
 	Openstack    *ReleasePlatformBase `json:"openstack"`
@@ -34,14 +34,14 @@ type ReleasePlatformBase struct {
 	Artifacts map[string]ImageFormat `json:"artifacts"`
 }
 
-// ReleaseAws contains AWS image information
-type ReleaseAws struct {
+// ReleasePlatformAws contains AWS image information
+type ReleasePlatformAws struct {
 	ReleasePlatformBase
 	Images map[string]ReleaseCloudImage `json:"images"`
 }
 
-// ReleaseGcp GCP image detail
-type ReleaseGcp struct {
+// ReleasePlatformGcp GCP image detail
+type ReleasePlatformGcp struct {
 	ReleasePlatformBase
 	Image *ReleaseCloudImageGcp `json:"image"`
 }
