@@ -9,7 +9,7 @@ import (
 )
 
 func TestParseFCS(t *testing.T) {
-	d, err := ioutil.ReadFile("fixtures/fcos-stable.json")
+	d, err := ioutil.ReadFile("fixtures/fcos-stream.json")
 	assert.Nil(t, err)
 	stream := Metadata{}
 	err = json.Unmarshal(d, &stream)
