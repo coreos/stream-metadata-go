@@ -43,14 +43,7 @@ type ReleasePlatformAws struct {
 // ReleasePlatformGcp GCP image detail
 type ReleasePlatformGcp struct {
 	ReleasePlatformBase
-	Image *ReleaseCloudImageGcp `json:"image"`
-}
-
-// ReleaseCloudImageGcp GCP cloud image information
-type ReleaseCloudImageGcp struct {
-	Project string `json:"project,omitempty"`
-	Family  string `json:"family,omitempty"`
-	Name    string `json:"name,omitempty"`
+	Image *GcpImage `json:"image"`
 }
 
 // ReleaseCloudImage cloud image information

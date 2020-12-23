@@ -19,3 +19,10 @@ type Artifact struct {
 	Signature string `json:"signature"`
 	Sha256    string `json:"sha256"`
 }
+
+// GcpImage represents a GCP cloud image
+type GcpImage struct {
+	Project string `json:"project,omitempty"`
+	Family  string `json:"family,omitempty"`
+	Name    string `json:"name,omitempty"`
+}

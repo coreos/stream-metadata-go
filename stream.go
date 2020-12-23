@@ -35,10 +35,3 @@ type AwsRegionImage struct {
 	Release string `json:"release"`
 	Image   string `json:"image"`
 }
-
-// GcpImage GCP cloud image information
-type GcpImage struct {
-	Project string `json:"project,omitempty"`
-	Family  string `json:"family,omitempty"`
-	Name    string `json:"name,omitempty"`
-}
