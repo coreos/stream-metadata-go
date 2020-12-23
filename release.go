@@ -10,7 +10,7 @@ type Release struct {
 
 // ReleaseArch release details for x86_64 architetcure
 type ReleaseArch struct {
-	Media *ReleaseMedia `json:"media"`
+	Media ReleaseMedia `json:"media"`
 }
 
 // ReleaseMedia contains details about various images we ship
@@ -31,8 +31,8 @@ type ReleaseMedia struct {
 
 // ReleaseAws contains AWS image information
 type ReleaseAws struct {
-	Artifacts map[string]ImageFormat        `json:"artifacts"`
-	Images    *map[string]ReleaseCloudImage `json:"images"`
+	Artifacts map[string]ImageFormat       `json:"artifacts"`
+	Images    map[string]ReleaseCloudImage `json:"images"`
 }
 
 // ReleaseGcp GCP image detail
@@ -50,7 +50,7 @@ type ReleaseCloudImageGcp struct {
 
 // ReleaseCloudImage cloud image information
 type ReleaseCloudImage struct {
-	Image *string `json:"image"`
+	Image string `json:"image"`
 }
 
 // ReleaseTargetPlatform target platforms

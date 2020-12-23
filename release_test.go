@@ -15,5 +15,5 @@ func TestParseFCR(t *testing.T) {
 	err = json.Unmarshal(d, &release)
 	assert.Nil(t, err)
 	assert.Equal(t, release.Stream, "stable")
-	assert.Equal(t, *(*release.Architectures["x86_64"].Media.Aws.Images)["us-east-2"].Image, "ami-091b0dbc05fe2dc06")
+	assert.Equal(t, release.Architectures["x86_64"].Media.Aws.Images["us-east-2"].Image, "ami-091b0dbc05fe2dc06")
 }
