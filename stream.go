@@ -51,13 +51,13 @@ type CloudImage struct {
 	Image string `json:"image,omitempty"`
 }
 
-// AwsImage Aws images
+// AwsImage represents an image across all AWS regions
 type AwsImage struct {
-	Regions map[string]*AwsAMI `json:"regions,omitempty"`
+	Regions map[string]*AwsRegionImage `json:"regions,omitempty"`
 }
 
-// AwsAMI aws AMI detail
-type AwsAMI struct {
+// AwsRegionImage represents an image in one AWS region
+type AwsRegionImage struct {
 	Release string `json:"release"`
 	Image   string `json:"image"`
 }
