@@ -9,26 +9,8 @@ type Stream struct {
 
 // Arch release details for x86_64 architetcure
 type Arch struct {
-	Artifacts Artifacts `json:"artifacts"`
-	Images    *Images   `json:"images,omitempty"`
-}
-
-// Artifacts contains shipped artifacts list
-type Artifacts struct {
-	Aliyun       *MediaDetails `json:"aliyun,omitempty"`
-	Aws          *MediaDetails `json:"aws,omitempty"`
-	Azure        *MediaDetails `json:"azure,omitempty"`
-	Digitalocean *MediaDetails `json:"digitalocean,omitempty"`
-	Exoscale     *MediaDetails `json:"exoscale,omitempty"`
-	Gcp          *MediaDetails `json:"gcp,omitempty"`
-	Ibmcloud     *MediaDetails `json:"ibmcloud,omitempty"`
-	Metal        *MediaDetails `json:"metal,omitempty"`
-	Openstack    *MediaDetails `json:"openstack,omitempty"`
-	Packet       *MediaDetails `json:"packet,omitempty"`
-	Qemu         *MediaDetails `json:"qemu,omitempty"`
-	Virtualbox   *MediaDetails `json:"virtualbox,omitempty"`
-	Vmware       *MediaDetails `json:"vmware,omitempty"`
-	Vultr        *MediaDetails `json:"vultr,omitempty"`
+	Artifacts map[string]*MediaDetails `json:"artifacts"`
+	Images    *Images                  `json:"images,omitempty"`
 }
 
 // MediaDetails contains image artifact and release detail
