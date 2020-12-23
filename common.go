@@ -1,7 +1,7 @@
 package stream
 
-// BuildMetadata for stream
-type BuildMetadata struct {
+// Metadata for a release or stream
+type Metadata struct {
 	LastModified string `json:"last-modified"`
 }
 
