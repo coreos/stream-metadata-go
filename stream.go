@@ -21,16 +21,8 @@ type PlatformArtifacts struct {
 
 // Images contains images available in cloud providers
 type Images struct {
-	Aws          *AwsImage   `json:"aws,omitempty"`
-	Azure        *CloudImage `json:"azure,omitempty"`
-	Gcp          *GcpImage   `json:"gcp,omitempty"`
-	Digitalocean *CloudImage `json:"digitalocean,omitempty"`
-	Packet       *CloudImage `json:"packet,omitempty"`
-}
-
-// CloudImage image for Cloud provider
-type CloudImage struct {
-	Image string `json:"image,omitempty"`
+	Aws *AwsImage `json:"aws,omitempty"`
+	Gcp *GcpImage `json:"gcp,omitempty"`
 }
 
 // AwsImage represents an image across all AWS regions

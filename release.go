@@ -17,8 +17,8 @@ type ReleaseArch struct {
 type ReleaseMedia struct {
 	Aliyun       *ReleaseTargetPlatform `json:"aliyun"`
 	Aws          *ReleaseAws            `json:"aws"`
-	Azure        *ReleaseAzure          `json:"azure"`
-	Digitalocean *ReleaseDigitalOcean   `json:"digitalocean"`
+	Azure        *ReleaseTargetPlatform `json:"azure"`
+	Digitalocean *ReleaseTargetPlatform `json:"digitalocean"`
 	Exoscale     *ReleaseTargetPlatform `json:"exoscale"`
 	Gcp          *ReleaseGcp            `json:"gcp"`
 	Ibmcloud     *ReleaseTargetPlatform `json:"ibmcloud"`
@@ -35,23 +35,6 @@ type ReleaseMedia struct {
 type ReleaseAws struct {
 	Artifacts map[string]*ImageFormat        `json:"artifacts"`
 	Images    *map[string]*ReleaseCloudImage `json:"images"`
-}
-
-// ReleaseDigitalOcean DigitalOcean image detail
-type ReleaseDigitalOcean struct {
-	Artifacts map[string]*ImageFormat `json:"artifacts"`
-	Image     string                  `json:"image"`
-}
-
-// ReleaseAzure Azure image detail
-type ReleaseAzure struct {
-	Artifacts map[string]*ImageFormat `json:"artifacts"`
-	Images    *ReleaseAzureImages     `json:"images"`
-}
-
-// ReleaseAzureImages Azure image detail
-type ReleaseAzureImages struct {
-	Global *ReleaseCloudImage `json:"global"`
 }
 
 // ReleaseGcp GCP image detail
