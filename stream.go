@@ -7,7 +7,7 @@ type Stream struct {
 	Architectures map[string]Arch `json:"architectures"`
 }
 
-// Arch release details for x86_64 architetcure
+// Architecture release details
 type Arch struct {
 	Artifacts map[string]PlatformArtifacts `json:"artifacts"`
 	Images    Images                       `json:"images,omitempty"`

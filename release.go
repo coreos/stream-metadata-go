@@ -8,12 +8,12 @@ type Release struct {
 	Architectures map[string]ReleaseArch `json:"architectures"`
 }
 
-// ReleaseArch release details for x86_64 architetcure
+// ReleaseArch release details
 type ReleaseArch struct {
 	Media ReleaseMedia `json:"media"`
 }
 
-// ReleaseMedia contains details about various images we ship
+// ReleaseMedia contains release details for various platforms
 type ReleaseMedia struct {
 	Aliyun       *ReleasePlatformBase `json:"aliyun"`
 	Aws          *ReleasePlatformAws  `json:"aws"`
@@ -46,7 +46,7 @@ type ReleasePlatformGcp struct {
 	Image *GcpImage `json:"image"`
 }
 
-// ReleaseCloudImage cloud image information
+// ReleaseCloudImage generic image detail
 type ReleaseCloudImage struct {
 	Image string `json:"image"`
 }
