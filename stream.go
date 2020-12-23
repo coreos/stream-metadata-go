@@ -9,12 +9,12 @@ type Stream struct {
 
 // Arch release details for x86_64 architetcure
 type Arch struct {
-	Artifacts map[string]*MediaDetails `json:"artifacts"`
-	Images    *Images                  `json:"images,omitempty"`
+	Artifacts map[string]*PlatformArtifacts `json:"artifacts"`
+	Images    *Images                       `json:"images,omitempty"`
 }
 
-// MediaDetails contains image artifact and release detail
-type MediaDetails struct {
+// PlatformArtifacts contains images for a platform
+type PlatformArtifacts struct {
 	Release string                  `json:"release"`
 	Formats map[string]*ImageFormat `json:"formats"`
 }
