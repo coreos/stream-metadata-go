@@ -2,10 +2,10 @@ package stream
 
 // Release contains details from release.json
 type Release struct {
-	Release       string                  `json:"release"`
-	Stream        string                  `json:"stream"`
-	Metadata      Metadata                `json:"metadata"`
-	Architectures map[string]*ReleaseArch `json:"architectures"`
+	Release       string                 `json:"release"`
+	Stream        string                 `json:"stream"`
+	Metadata      Metadata               `json:"metadata"`
+	Architectures map[string]ReleaseArch `json:"architectures"`
 }
 
 // ReleaseArch release details for x86_64 architetcure
@@ -31,14 +31,14 @@ type ReleaseMedia struct {
 
 // ReleaseAws contains AWS image information
 type ReleaseAws struct {
-	Artifacts map[string]*ImageFormat        `json:"artifacts"`
-	Images    *map[string]*ReleaseCloudImage `json:"images"`
+	Artifacts map[string]ImageFormat        `json:"artifacts"`
+	Images    *map[string]ReleaseCloudImage `json:"images"`
 }
 
 // ReleaseGcp GCP image detail
 type ReleaseGcp struct {
-	Artifacts map[string]*ImageFormat `json:"artifacts"`
-	Image     *ReleaseCloudImageGcp   `json:"image"`
+	Artifacts map[string]ImageFormat `json:"artifacts"`
+	Image     *ReleaseCloudImageGcp  `json:"image"`
 }
 
 // ReleaseCloudImageGcp GCP cloud image information
@@ -55,5 +55,5 @@ type ReleaseCloudImage struct {
 
 // ReleaseTargetPlatform target platforms
 type ReleaseTargetPlatform struct {
-	Artifacts map[string]*ImageFormat `json:"artifacts"`
+	Artifacts map[string]ImageFormat `json:"artifacts"`
 }
