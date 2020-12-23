@@ -24,9 +24,7 @@ type ReleaseMedia struct {
 	Ibmcloud     *ReleaseTargetPlatform `json:"ibmcloud"`
 	Metal        *ReleaseTargetPlatform `json:"metal"`
 	Openstack    *ReleaseTargetPlatform `json:"openstack"`
-	Packet       *ReleaseTargetPlatform `json:"packet"`
 	Qemu         *ReleaseTargetPlatform `json:"qemu"`
-	Virtualbox   *ReleaseTargetPlatform `json:"virtualbox"`
 	Vmware       *ReleaseTargetPlatform `json:"vmware"`
 	Vultr        *ReleaseTargetPlatform `json:"vultr"`
 }
