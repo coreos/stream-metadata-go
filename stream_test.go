@@ -11,7 +11,7 @@ import (
 func TestParseFCS(t *testing.T) {
 	d, err := ioutil.ReadFile("fixtures/fcos-stream.json")
 	assert.Nil(t, err)
-	stream := Metadata{}
+	stream := Stream{}
 	err = json.Unmarshal(d, &stream)
 	assert.Nil(t, err)
 	assert.Equal(t, stream.Stream, "stable")
