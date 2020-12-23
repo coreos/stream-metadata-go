@@ -5,7 +5,6 @@ type Metadata struct {
 	Stream        string           `json:"stream"`
 	Meta          BuildMetadata    `json:"metadata"`
 	Architectures map[string]*Arch `json:"architectures"`
-	// Updates       StreamUpdates          `json:"updates"`
 }
 
 // Arch release details for x86_64 architetcure
@@ -69,8 +68,3 @@ type GcpImage struct {
 	Family  string `json:"family,omitempty"`
 	Name    string `json:"name,omitempty"`
 }
-
-// StreamUpdates contains release version
-// type StreamUpdates struct {
-// 	Release string `json:"release"`
-// }
