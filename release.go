@@ -15,18 +15,23 @@ type ReleaseArch struct {
 
 // ReleaseMedia contains details about various images we ship
 type ReleaseMedia struct {
-	Aliyun       *ReleaseTargetPlatform `json:"aliyun"`
-	Aws          *ReleaseAws            `json:"aws"`
-	Azure        *ReleaseTargetPlatform `json:"azure"`
-	Digitalocean *ReleaseTargetPlatform `json:"digitalocean"`
-	Exoscale     *ReleaseTargetPlatform `json:"exoscale"`
-	Gcp          *ReleaseGcp            `json:"gcp"`
-	Ibmcloud     *ReleaseTargetPlatform `json:"ibmcloud"`
-	Metal        *ReleaseTargetPlatform `json:"metal"`
-	Openstack    *ReleaseTargetPlatform `json:"openstack"`
-	Qemu         *ReleaseTargetPlatform `json:"qemu"`
-	Vmware       *ReleaseTargetPlatform `json:"vmware"`
-	Vultr        *ReleaseTargetPlatform `json:"vultr"`
+	Aliyun       *ReleasePlatformBase `json:"aliyun"`
+	Aws          *ReleaseAws          `json:"aws"`
+	Azure        *ReleasePlatformBase `json:"azure"`
+	Digitalocean *ReleasePlatformBase `json:"digitalocean"`
+	Exoscale     *ReleasePlatformBase `json:"exoscale"`
+	Gcp          *ReleaseGcp          `json:"gcp"`
+	Ibmcloud     *ReleasePlatformBase `json:"ibmcloud"`
+	Metal        *ReleasePlatformBase `json:"metal"`
+	Openstack    *ReleasePlatformBase `json:"openstack"`
+	Qemu         *ReleasePlatformBase `json:"qemu"`
+	Vmware       *ReleasePlatformBase `json:"vmware"`
+	Vultr        *ReleasePlatformBase `json:"vultr"`
+}
+
+// Release platform with no cloud images
+type ReleasePlatformBase struct {
+	Artifacts map[string]ImageFormat `json:"artifacts"`
 }
 
 // ReleaseAws contains AWS image information
@@ -51,9 +56,4 @@ type ReleaseCloudImageGcp struct {
 // ReleaseCloudImage cloud image information
 type ReleaseCloudImage struct {
 	Image string `json:"image"`
-}
-
-// ReleaseTargetPlatform target platforms
-type ReleaseTargetPlatform struct {
-	Artifacts map[string]ImageFormat `json:"artifacts"`
 }
