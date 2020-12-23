@@ -2,8 +2,8 @@ package stream
 
 // Metadata contains artifacts available in a stream
 type Metadata struct {
-	Stream        string                 `json:"stream"`
-	Meta          BuildMetadata          `json:"metadata"`
+	Stream        string           `json:"stream"`
+	Meta          BuildMetadata    `json:"metadata"`
 	Architectures map[string]*Arch `json:"architectures"`
 	// Updates       StreamUpdates          `json:"updates"`
 }
