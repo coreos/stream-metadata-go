@@ -36,14 +36,14 @@ type ReleasePlatformBase struct {
 
 // ReleaseAws contains AWS image information
 type ReleaseAws struct {
-	Artifacts map[string]ImageFormat       `json:"artifacts"`
-	Images    map[string]ReleaseCloudImage `json:"images"`
+	ReleasePlatformBase
+	Images map[string]ReleaseCloudImage `json:"images"`
 }
 
 // ReleaseGcp GCP image detail
 type ReleaseGcp struct {
-	Artifacts map[string]ImageFormat `json:"artifacts"`
-	Image     *ReleaseCloudImageGcp  `json:"image"`
+	ReleasePlatformBase
+	Image *ReleaseCloudImageGcp `json:"image"`
 }
 
 // ReleaseCloudImageGcp GCP cloud image information
