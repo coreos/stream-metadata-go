@@ -1,2 +1,9 @@
-all:
-	go build -mod=vendor
+PKGS := release stream
+
+build:
+	for pkg in $(PKGS); do (cd $$pkg && go build -mod=vendor); done
+.PHONY: build
+
+test:
+	for pkg in $(PKGS); do (cd $$pkg && go test); done
+.PHONY: test
