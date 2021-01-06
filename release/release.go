@@ -59,7 +59,8 @@ type Release struct {
 
 // Arch release details
 type Arch struct {
-	Media Media `json:"media"`
+	Commit string `json:"commit"`
+	Media  Media  `json:"media"`
 }
 
 // Media contains release details for various platforms
