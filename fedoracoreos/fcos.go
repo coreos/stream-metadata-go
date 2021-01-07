@@ -7,7 +7,7 @@ import (
 	"fmt"
 	"net/url"
 
-	"github.com/cgwalters/stream-metadata-go/fedoracoreos/internals"
+	"github.com/coreos/stream-metadata-go/fedoracoreos/internals"
 )
 
 const (

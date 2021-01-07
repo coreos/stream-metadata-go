@@ -1,4 +1,4 @@
-module github.com/cgwalters/stream-metadata-go
+module github.com/coreos/stream-metadata-go
 
 go 1.15
 
