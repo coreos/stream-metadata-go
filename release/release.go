@@ -16,9 +16,9 @@ type Index struct {
 
 // IndexRelease is a "release pointer" from a release index
 type IndexRelease struct {
-	Commits  []IndexReleaseCommit `json:"commits"`
-	Version  string               `json:"version"`
-	Endpoint string               `json:"metadata"`
+	Commits     []IndexReleaseCommit `json:"commits"`
+	Version     string               `json:"version"`
+	MetadataURL string               `json:"metadata"`
 }
 
 // IndexReleaseCommit describes an ostree commit plus architecture
