@@ -1,8 +1,30 @@
 package release
 
-// Metadata for a release or stream
+// Metadata is common metadata that contains last-modified
 type Metadata struct {
 	LastModified string `json:"last-modified"`
+}
+
+// Index models the release index:
+// https://github.com/coreos/fedora-coreos-tracker/tree/master/metadata/release-index
+type Index struct {
+	Note     string         `json:"note"` // used to note to users not to consume the release metadata index
+	Releases []IndexRelease `json:"releases"`
+	Metadata Metadata       `json:"metadata"`
+	Stream   string         `json:"stream"`
+}
+
+// IndexRelease is a "release pointer" from a release index
+type IndexRelease struct {
+	Commits     []IndexReleaseCommit `json:"commits"`
+	Version     string               `json:"version"`
+	MetadataURL string               `json:"metadata"`
+}
+
+// IndexReleaseCommit describes an ostree commit plus architecture
+type IndexReleaseCommit struct {
+	Architecture string `json:"architecture"`
+	Checksum     string `json:"checksum"`
 }
 
 // ImageFormat contains all artifacts for a single OS image
@@ -37,7 +59,8 @@ type Release struct {
 
 // Arch release details
 type Arch struct {
-	Media Media `json:"media"`
+	Commit string `json:"commit"`
+	Media  Media  `json:"media"`
 }
 
 // Media contains release details for various platforms

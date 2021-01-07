@@ -1,4 +1,4 @@
-PKGS := release stream
+PKGS := release stream fedoracoreos
 
 build:
 	for pkg in $(PKGS); do (cd $$pkg && go build -mod=vendor); done
