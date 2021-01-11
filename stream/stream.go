@@ -1,3 +1,6 @@
+// Package stream models a CoreOS "stream", which is
+// a description of the recommended set of binary images for CoreOS.   Use
+// this API to find cloud images, bare metal disk images, etc.
 package stream
 
 // Stream contains artifacts available in a stream
