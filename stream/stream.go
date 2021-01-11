@@ -12,7 +12,7 @@ type Metadata struct {
 	LastModified string `json:"last-modified"`
 }
 
-// Architecture release details
+// Arch contains release details for a particular hardware architecture
 type Arch struct {
 	Artifacts map[string]PlatformArtifacts `json:"artifacts"`
 	Images    Images                       `json:"images,omitempty"`
