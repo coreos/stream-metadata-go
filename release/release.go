@@ -1,10 +1,5 @@
 package release
 
-// Metadata is common metadata that contains last-modified
-type Metadata struct {
-	LastModified string `json:"last-modified"`
-}
-
 // Index models the release index:
 // https://github.com/coreos/fedora-coreos-tracker/tree/master/metadata/release-index
 type Index struct {
@@ -27,34 +22,17 @@ type IndexReleaseCommit struct {
 	Checksum     string `json:"checksum"`
 }
 
-// ImageFormat contains all artifacts for a single OS image
-type ImageFormat struct {
-	Disk      *Artifact `json:"disk,omitempty"`
-	Kernel    *Artifact `json:"kernel,omitempty"`
-	Initramfs *Artifact `json:"initramfs,omitempty"`
-	Rootfs    *Artifact `json:"rootfs,omitempty"`
-}
-
-// Artifact represents one image file, plus its metadata
-type Artifact struct {
-	Location  string `json:"location"`
-	Signature string `json:"signature"`
-	Sha256    string `json:"sha256"`
-}
-
-// GcpImage represents a GCP cloud image
-type GcpImage struct {
-	Project string `json:"project,omitempty"`
-	Family  string `json:"family,omitempty"`
-	Name    string `json:"name,omitempty"`
-}
-
 // Release contains details from release.json
 type Release struct {
 	Release       string          `json:"release"`
 	Stream        string          `json:"stream"`
 	Metadata      Metadata        `json:"metadata"`
 	Architectures map[string]Arch `json:"architectures"`
+}
+
+// Metadata is common metadata that contains last-modified
+type Metadata struct {
+	LastModified string `json:"last-modified"`
 }
 
 // Arch release details
@@ -96,7 +74,29 @@ type PlatformGcp struct {
 	Image *GcpImage `json:"image"`
 }
 
+// ImageFormat contains all artifacts for a single OS image
+type ImageFormat struct {
+	Disk      *Artifact `json:"disk,omitempty"`
+	Kernel    *Artifact `json:"kernel,omitempty"`
+	Initramfs *Artifact `json:"initramfs,omitempty"`
+	Rootfs    *Artifact `json:"rootfs,omitempty"`
+}
+
+// Artifact represents one image file, plus its metadata
+type Artifact struct {
+	Location  string `json:"location"`
+	Signature string `json:"signature"`
+	Sha256    string `json:"sha256"`
+}
+
 // CloudImage generic image detail
 type CloudImage struct {
 	Image string `json:"image"`
+}
+
+// GcpImage represents a GCP cloud image
+type GcpImage struct {
+	Project string `json:"project,omitempty"`
+	Family  string `json:"family,omitempty"`
+	Name    string `json:"name,omitempty"`
 }
