@@ -1,3 +1,7 @@
+// Package release contains APIs for interacting with a
+// particular "release".  Avoid this unless you are sure
+// you need it.  It's expected that CoreOS users interact
+// with streams instead.
 package release
 
 // Index models the release index:
