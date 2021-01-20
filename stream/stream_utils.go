@@ -2,8 +2,8 @@ package stream
 
 import "fmt"
 
-// formatPrefix describes a stream+architecture combination, intended for prepending to error messages
-func (st *Stream) formatPrefix(archname string) string {
+// FormatPrefix describes a stream+architecture combination, intended for prepending to error messages
+func (st *Stream) FormatPrefix(archname string) string {
 	return fmt.Sprintf("stream:%s arch:%s", st.Stream, archname)
 }
 
@@ -26,12 +26,12 @@ func (st *Stream) GetAwsRegionImage(archname, region string) (*AwsRegionImage, e
 	}
 	awsimages := starch.Images.Aws
 	if awsimages == nil {
-		return nil, fmt.Errorf("%s: No AWS images", st.formatPrefix(archname))
+		return nil, fmt.Errorf("%s: No AWS images", st.FormatPrefix(archname))
 	}
 	var regionVal AwsRegionImage
 	var ok bool
 	if regionVal, ok = awsimages.Regions[region]; !ok {
-		return nil, fmt.Errorf("%s: No AWS images in region %s", st.formatPrefix(archname), region)
+		return nil, fmt.Errorf("%s: No AWS images in region %s", st.FormatPrefix(archname), region)
 	}
 
 	return &regionVal, nil

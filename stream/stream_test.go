@@ -22,6 +22,8 @@ func TestParseFCS(t *testing.T) {
 	assert.Nil(t, err)
 	assert.Equal(t, ami, "ami-091b0dbc05fe2dc06")
 
+	assert.Equal(t, "stream:stable arch:x86_64", stream.FormatPrefix("x86_64"))
+
 	// I hope I live to see the day when we might change this code to test for success and not error
 	_, err = stream.GetAMI("x86_64", "mars-1")
 	assert.NotNil(t, err)
