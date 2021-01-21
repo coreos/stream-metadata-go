@@ -45,8 +45,9 @@ type Artifact struct {
 
 // Images contains images available in cloud providers
 type Images struct {
-	Aws *AwsImage `json:"aws,omitempty"`
-	Gcp *GcpImage `json:"gcp,omitempty"`
+	Aws   *AwsImage   `json:"aws,omitempty"`
+	Gcp   *GcpImage   `json:"gcp,omitempty"`
+	Azure *AzureImage `json:"azure,omitempty"`
 }
 
 // AwsImage represents an image across all AWS regions
@@ -65,4 +66,9 @@ type GcpImage struct {
 	Project string `json:"project,omitempty"`
 	Family  string `json:"family,omitempty"`
 	Name    string `json:"name,omitempty"`
+}
+
+// AzureImage represents an Azure cloud image
+type AzureImage struct {
+	URL string `json:"url,omitempty"`
 }

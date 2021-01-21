@@ -47,18 +47,18 @@ type Arch struct {
 
 // Media contains release details for various platforms
 type Media struct {
-	Aliyun       *PlatformBase `json:"aliyun"`
-	Aws          *PlatformAws  `json:"aws"`
-	Azure        *PlatformBase `json:"azure"`
-	Digitalocean *PlatformBase `json:"digitalocean"`
-	Exoscale     *PlatformBase `json:"exoscale"`
-	Gcp          *PlatformGcp  `json:"gcp"`
-	Ibmcloud     *PlatformBase `json:"ibmcloud"`
-	Metal        *PlatformBase `json:"metal"`
-	Openstack    *PlatformBase `json:"openstack"`
-	Qemu         *PlatformBase `json:"qemu"`
-	Vmware       *PlatformBase `json:"vmware"`
-	Vultr        *PlatformBase `json:"vultr"`
+	Aliyun       *PlatformBase  `json:"aliyun"`
+	Aws          *PlatformAws   `json:"aws"`
+	Azure        *PlatformAzure `json:"azure"`
+	Digitalocean *PlatformBase  `json:"digitalocean"`
+	Exoscale     *PlatformBase  `json:"exoscale"`
+	Gcp          *PlatformGcp   `json:"gcp"`
+	Ibmcloud     *PlatformBase  `json:"ibmcloud"`
+	Metal        *PlatformBase  `json:"metal"`
+	Openstack    *PlatformBase  `json:"openstack"`
+	Qemu         *PlatformBase  `json:"qemu"`
+	Vmware       *PlatformBase  `json:"vmware"`
+	Vultr        *PlatformBase  `json:"vultr"`
 }
 
 // PlatformBase with no cloud images
@@ -104,4 +104,15 @@ type GcpImage struct {
 	Project string `json:"project,omitempty"`
 	Family  string `json:"family,omitempty"`
 	Name    string `json:"name,omitempty"`
+}
+
+// PlatformAzure represents an Azure cloud image
+type PlatformAzure struct {
+	PlatformBase
+	Image *AzureImage `json:"image"`
+}
+
+// AzureImage represents an Azure cloud image
+type AzureImage struct {
+	URL string `json:"url,omitempty"`
 }
