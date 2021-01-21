@@ -1,4 +1,4 @@
-PKGS := arch release stream fedoracoreos
+PKGS := arch release stream stream/rhcos release/rhcos fedoracoreos
 
 build:
 	for pkg in $(PKGS); do (cd $$pkg && go build -mod=vendor); done
