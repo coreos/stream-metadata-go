@@ -40,7 +40,7 @@ type Artifact struct {
 	Location           string `json:"location"`
 	Signature          string `json:"signature"`
 	Sha256             string `json:"sha256"`
-	UncompressedSha256 string `json:"uncompressed-sha256"`
+	UncompressedSha256 string `json:"uncompressed-sha256,omitempty"`
 }
 
 // Images contains images available in cloud providers
