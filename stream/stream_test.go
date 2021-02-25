@@ -22,12 +22,12 @@ func TestParseFCS(t *testing.T) {
 	assert.Nil(t, err)
 	assert.Equal(t, ami, "ami-091b0dbc05fe2dc06")
 
-	assert.Equal(t, "stream:stable arch:x86_64", stream.FormatPrefix("x86_64"))
+	assert.Equal(t, "stable/x86_64", stream.FormatPrefix("x86_64"))
 
 	// I hope I live to see the day when we might change this code to test for success and not error
 	_, err = stream.GetAMI("x86_64", "mars-1")
 	assert.NotNil(t, err)
-	assert.Contains(t, err.Error(), "stream:stable arch:x86_64: No AWS images in region mars-1")
+	assert.Contains(t, err.Error(), "stable/x86_64: No AWS images in region mars-1")
 
 	_, err = stream.GetAMI("aarch64", "us-east-2")
 	assert.NotNil(t, err)

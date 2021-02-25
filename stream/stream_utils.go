@@ -4,7 +4,7 @@ import "fmt"
 
 // FormatPrefix describes a stream+architecture combination, intended for prepending to error messages
 func (st *Stream) FormatPrefix(archname string) string {
-	return fmt.Sprintf("stream:%s arch:%s", st.Stream, archname)
+	return fmt.Sprintf("%s/%s", st.Stream, archname)
 }
 
 // GetArchitecture loads the architecture-specific builds from a stream,
