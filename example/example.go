@@ -4,11 +4,13 @@
 package main
 
 import (
+	"bufio"
 	"encoding/json"
 	"fmt"
 	"io/ioutil"
 	"net/http"
 	"os"
+	"path/filepath"
 
 	"github.com/coreos/stream-metadata-go/fedoracoreos"
 	"github.com/coreos/stream-metadata-go/stream"
@@ -18,6 +20,49 @@ const (
 	targetArch = "x86_64"
 	region     = "us-east-2"
 )
+
+func downloadISO(fcosstable stream.Stream) error {
+	iso := fcosstable.Architectures[targetArch].Artifacts["metal"].Formats["iso"].Disk
+	if iso == nil {
+		return fmt.Errorf("%s: missing iso", fcosstable.FormatPrefix(targetArch))
+	}
+	w, err := os.Create(filepath.Base(iso.Location))
+	if err != nil {
+		return err
+	}
+	defer w.Close()
+	bufw := bufio.NewWriter(w)
+
+	err = iso.Fetch(w)
+	if err != nil {
+		return err
+	}
+
+	err = bufw.Flush()
+	if err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func printAMI(fcosstable stream.Stream) error {
+	arch, ok := fcosstable.Architectures[targetArch]
+	if !ok {
+		return fmt.Errorf("No %s architecture in stream", targetArch)
+	}
+	awsimages := arch.Images.Aws
+	if awsimages == nil {
+		return fmt.Errorf("No %s AWS images in stream", targetArch)
+	}
+	var regionVal stream.AwsRegionImage
+	if regionVal, ok = awsimages.Regions[region]; !ok {
+		return fmt.Errorf("No %s AWS images in region %s", targetArch, region)
+	}
+	fmt.Printf("%s\n", regionVal.Image)
+
+	return nil
+}
 
 func run() error {
 	streamurl := fedoracoreos.GetStreamURL(fedoracoreos.StreamStable)
@@ -36,21 +81,17 @@ func run() error {
 	if err != nil {
 		return err
 	}
-	arch, ok := fcosstable.Architectures[targetArch]
-	if !ok {
-		return fmt.Errorf("No %s architecture in stream", targetArch)
+	if len(os.Args) != 2 {
+		return fmt.Errorf("usage: example aws-ami|download-iso")
 	}
-	awsimages := arch.Images.Aws
-	if awsimages == nil {
-		return fmt.Errorf("No %s AWS images in stream", targetArch)
+	arg := os.Args[1]
+	if arg == "aws-ami" {
+		return printAMI(fcosstable)
+	} else if arg == "download-iso" {
+		return downloadISO(fcosstable)
+	} else {
+		return fmt.Errorf("invalid operation %s", arg)
 	}
-	var regionVal stream.AwsRegionImage
-	if regionVal, ok = awsimages.Regions[region]; !ok {
-		return fmt.Errorf("No %s AWS images in region %s", targetArch, region)
-	}
-	fmt.Printf("%s\n", regionVal.Image)
-
-	return nil
 }
 
 func main() {
