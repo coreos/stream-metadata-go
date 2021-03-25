@@ -4,13 +4,11 @@
 package main
 
 import (
-	"bufio"
 	"encoding/json"
 	"fmt"
 	"io/ioutil"
 	"net/http"
 	"os"
-	"path/filepath"
 
 	"github.com/coreos/stream-metadata-go/fedoracoreos"
 	"github.com/coreos/stream-metadata-go/stream"
@@ -26,22 +24,13 @@ func downloadISO(fcosstable stream.Stream) error {
 	if iso == nil {
 		return fmt.Errorf("%s: missing iso", fcosstable.FormatPrefix(targetArch))
 	}
-	w, err := os.Create(filepath.Base(iso.Location))
-	if err != nil {
-		return err
-	}
-	defer w.Close()
-	bufw := bufio.NewWriter(w)
 
-	err = iso.Fetch(w)
+	fmt.Printf("Downloading %s\n", iso.Location)
+	path, err := iso.Download(".")
 	if err != nil {
-		return err
+		return fmt.Errorf("Failed to download %s: %w", iso.Location, err)
 	}
-
-	err = bufw.Flush()
-	if err != nil {
-		return err
-	}
+	fmt.Printf("Downloaded %s\n", path)
 
 	return nil
 }

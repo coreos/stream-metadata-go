@@ -5,6 +5,10 @@ import (
 	"fmt"
 	"io"
 	"net/http"
+	"net/url"
+	"path"
+
+	"github.com/google/renameio"
 )
 
 // Fetch an artifact, validating its checksum.  If applicable,
@@ -28,11 +32,6 @@ func (a *Artifact) Fetch(w io.Writer) error {
 		return err
 	}
 
-	err = resp.Body.Close()
-	if err != nil {
-		return err
-	}
-
 	// Validate sha256 checksum
 	foundChecksum := fmt.Sprintf("%x", hasher.Sum(nil))
 	if a.Sha256 != foundChecksum {
@@ -40,4 +39,39 @@ func (a *Artifact) Fetch(w io.Writer) error {
 	}
 
 	return nil
+}
+
+/// Download fetches the specified artifact and saves it to the target
+/// directory.  The full file path will be returned as a string.
+/// If the target file path exists, it will be overwritten.
+/// If the download fails, the temporary file will be deleted.
+func (a *Artifact) Download(destdir string) (string, error) {
+	loc, err := url.Parse(a.Location)
+	if err != nil {
+		return "", err
+	}
+	name := path.Base(loc.Path)
+	destfile := path.Join(destdir, name)
+	w, err := renameio.TempFile("", destfile)
+	if err != nil {
+		return "", err
+	}
+
+	defer func() {
+		// Ignore an error to unlink
+		_ = w.Cleanup()
+	}()
+	err = a.Fetch(w)
+	if err != nil {
+		return "", err
+	}
+	if err := w.File.Chmod(0644); err != nil {
+		return "", err
+	}
+	err = w.CloseAtomicallyReplace()
+	if err != nil {
+		return "", err
+	}
+
+	return destfile, nil
 }
