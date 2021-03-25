@@ -32,4 +32,18 @@ func TestParseFCS(t *testing.T) {
 	_, err = stream.GetAMI("aarch64", "us-east-2")
 	assert.NotNil(t, err)
 	assert.Contains(t, err.Error(), "stream:stable does not have architecture 'aarch64'")
+
+	a, err := stream.QueryDisk("x86_64", "metal", "iso")
+	assert.Nil(t, err)
+	assert.Equal(t, a.Location, "https://builds.coreos.fedoraproject.org/prod/streams/stable/builds/33.20201201.3.0/x86_64/fedora-coreos-33.20201201.3.0-live.x86_64.iso")
+
+	_, err = stream.QueryDisk("x86_64", "metal", "nosuchthing")
+	assert.NotNil(t, err)
+	assert.Contains(t, err.Error(), "disk not found")
+	_, err = stream.QueryDisk("x86_64", "mysterious-obelisk", "rune")
+	assert.NotNil(t, err)
+	assert.Contains(t, err.Error(), "artifact 'mysterious-obelisk' not found")
+	_, err = stream.QueryDisk("nonarch", "", "nosuchthing")
+	assert.NotNil(t, err)
+	assert.Contains(t, err.Error(), "does not have architecture 'nonarch'")
 }
