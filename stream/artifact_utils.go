@@ -7,6 +7,7 @@ import (
 	"net/http"
 	"net/url"
 	"path"
+	"path/filepath"
 
 	"github.com/google/renameio"
 )
@@ -51,7 +52,7 @@ func (a *Artifact) Download(destdir string) (string, error) {
 		return "", err
 	}
 	name := path.Base(loc.Path)
-	destfile := path.Join(destdir, name)
+	destfile := filepath.Join(destdir, name)
 	w, err := renameio.TempFile("", destfile)
 	if err != nil {
 		return "", err
