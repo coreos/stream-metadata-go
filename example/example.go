@@ -20,9 +20,9 @@ const (
 )
 
 func downloadISO(fcosstable stream.Stream) error {
-	iso := fcosstable.Architectures[targetArch].Artifacts["metal"].Formats["iso"].Disk
-	if iso == nil {
-		return fmt.Errorf("%s: missing iso", fcosstable.FormatPrefix(targetArch))
+	iso, err := fcosstable.QueryDisk(targetArch, "metal", "iso")
+	if err != nil {
+		return err
 	}
 
 	fmt.Printf("Downloading %s\n", iso.Location)
