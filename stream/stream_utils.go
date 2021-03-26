@@ -45,3 +45,21 @@ func (st *Stream) GetAMI(archname, region string) (string, error) {
 	}
 	return regionVal.Image, nil
 }
+
+// QueryDisk finds the singleton disk artifact for a given format and architecture.
+func (st *Stream) QueryDisk(architectureName, artifactName, formatName string) (*Artifact, error) {
+	arch, err := st.GetArchitecture(architectureName)
+	if err != nil {
+		return nil, err
+	}
+	artifacts := arch.Artifacts[artifactName]
+	if artifacts.Release == "" {
+		return nil, fmt.Errorf("%s: artifact '%s' not found", st.FormatPrefix(architectureName), artifactName)
+	}
+	format := artifacts.Formats[formatName]
+	if format.Disk == nil {
+		return nil, fmt.Errorf("%s: artifact '%s' format '%s' disk not found", st.FormatPrefix(architectureName), artifactName, formatName)
+	}
+
+	return format.Disk, nil
+}
