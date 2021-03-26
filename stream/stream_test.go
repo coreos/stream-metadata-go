@@ -37,6 +37,10 @@ func TestParseFCS(t *testing.T) {
 	assert.Nil(t, err)
 	assert.Equal(t, a.Location, "https://builds.coreos.fedoraproject.org/prod/streams/stable/builds/33.20201201.3.0/x86_64/fedora-coreos-33.20201201.3.0-live.x86_64.iso")
 
+	name, err := a.Name()
+	assert.Nil(t, err)
+	assert.Equal(t, name, "fedora-coreos-33.20201201.3.0-live.x86_64.iso")
+
 	_, err = stream.QueryDisk("x86_64", "metal", "nosuchthing")
 	assert.NotNil(t, err)
 	assert.Contains(t, err.Error(), "disk not found")
