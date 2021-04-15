@@ -4,10 +4,7 @@
 package main
 
 import (
-	"encoding/json"
 	"fmt"
-	"io/ioutil"
-	"net/http"
 	"os"
 
 	"github.com/coreos/stream-metadata-go/fedoracoreos"
@@ -54,30 +51,18 @@ func printAMI(fcosstable stream.Stream) error {
 }
 
 func run() error {
-	streamurl := fedoracoreos.GetStreamURL(fedoracoreos.StreamStable)
-	resp, err := http.Get(streamurl.String())
-	if err != nil {
-		return err
-	}
-	body, err := ioutil.ReadAll(resp.Body)
-	resp.Body.Close()
-	if err != nil {
-		return err
-	}
-
-	var fcosstable stream.Stream
-	err = json.Unmarshal(body, &fcosstable)
-	if err != nil {
-		return err
-	}
 	if len(os.Args) != 2 {
 		return fmt.Errorf("usage: example aws-ami|download-iso")
 	}
 	arg := os.Args[1]
+	fcosstable, err := fedoracoreos.FetchStream(fedoracoreos.StreamStable)
+	if err != nil {
+		return err
+	}
 	if arg == "aws-ami" {
-		return printAMI(fcosstable)
+		return printAMI(*fcosstable)
 	} else if arg == "download-iso" {
-		return downloadISO(fcosstable)
+		return downloadISO(*fcosstable)
 	} else {
 		return fmt.Errorf("invalid operation %s", arg)
 	}
