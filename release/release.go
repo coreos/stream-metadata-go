@@ -9,7 +9,7 @@ import (
 )
 
 // Index models the release index:
-// https://github.com/coreos/fedora-coreos-tracker/tree/master/metadata/release-index
+// https://github.com/coreos/fedora-coreos-tracker/tree/main/metadata/release-index
 type Index struct {
 	Note     string         `json:"note"` // used to note to users not to consume the release metadata index
 	Releases []IndexRelease `json:"releases"`
