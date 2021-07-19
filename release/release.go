@@ -55,6 +55,7 @@ type Media struct {
 	Aliyun       *PlatformBase `json:"aliyun"`
 	Aws          *PlatformAws  `json:"aws"`
 	Azure        *PlatformBase `json:"azure"`
+	AzureStack   *PlatformBase `json:"azurestack"`
 	Digitalocean *PlatformBase `json:"digitalocean"`
 	Exoscale     *PlatformBase `json:"exoscale"`
 	Gcp          *PlatformGcp  `json:"gcp"`
