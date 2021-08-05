@@ -183,6 +183,106 @@
                 }
             },
             "images": {
+                "aliyun": {
+                    "regions": {
+                        "ap-northeast-1": {
+                            "release": "33.20201201.3.0",
+                            "image": "m-6wecinpim9haf6ws23r2"
+                        },
+                        "ap-south-1": {
+                            "release": "33.20201201.3.0",
+                            "image": "m-a2d7rl7sf9fhtgs2fqqp"
+                        },
+                        "ap-southeast-1": {
+                            "release": "33.20201201.3.0",
+                            "image": "m-t4n8qbyvu3hm6s9aibgt"
+                        },
+                        "ap-southeast-2": {
+                            "release": "33.20201201.3.0",
+                            "image": "m-p0wdy2bd65vy5foymbyn"
+                        },
+                        "ap-southeast-3": {
+                            "release": "33.20201201.3.0",
+                            "image": "m-8pse8lfxohn0pv9w3s4d"
+                        },
+                        "ap-southeast-5": {
+                            "release": "33.20201201.3.0",
+                            "image": "m-k1a07hbstlz2nrcpw97q"
+                        },
+                        "cn-beijing": {
+                            "release": "33.20201201.3.0",
+                            "image": "m-2ze3iqjpvxst7wgwkd6m"
+                        },
+                        "cn-chengdu": {
+                            "release": "33.20201201.3.0",
+                            "image": "m-2vcftvw1c1pd1iq1tr8u"
+                        },
+                        "cn-guangzhou": {
+                            "release": "33.20201201.3.0",
+                            "image": "m-7xvfemexpzytrtonb04q"
+                        },
+                        "cn-hangzhou": {
+                            "release": "33.20201201.3.0",
+                            "image": "m-bp1b29lcl6hx1cu1kknx"
+                        },
+                        "cn-heyuan": {
+                            "release": "33.20201201.3.0",
+                            "image": "m-f8z2s66jqkz6lqbdrmxk"
+                        },
+                        "cn-hongkong": {
+                            "release": "33.20201201.3.0",
+                            "image": "m-j6cci77g4mwv4dgw9pf4"
+                        },
+                        "cn-huhehaote": {
+                            "release": "33.20201201.3.0",
+                            "image": "m-hp3hsaie1sgguc3mf9ww"
+                        },
+                        "cn-nanjing": {
+                            "release": "33.20201201.3.0",
+                            "image": "m-gc79us39ybgr6oxs4lgu"
+                        },
+                        "cn-qingdao": {
+                            "release": "33.20201201.3.0",
+                            "image": "m-m5e71jt32enfboyrdf5h"
+                        },
+                        "cn-shanghai": {
+                            "release": "33.20201201.3.0",
+                            "image": "m-uf6caftakxqri7bf37vf"
+                        },
+                        "cn-shenzhen": {
+                            "release": "33.20201201.3.0",
+                            "image": "m-wz97oj9dscgdiypk45e8"
+                        },
+                        "cn-wulanchabu": {
+                            "release": "33.20201201.3.0",
+                            "image": "m-0jl5ejm6aczs1n9a7z0z"
+                        },
+                        "cn-zhangjiakou": {
+                            "release": "33.20201201.3.0",
+                            "image": "m-8vbg3hxkp6i5zpdklate"
+                        },
+                        "eu-central-1": {
+                            "release": "33.20201201.3.0",
+                            "image": "m-gw885u4yrv9yo6t3u1ge"
+                        },
+                        "eu-west-1": {
+                            "release": "33.20201201.3.0",
+                            "image": "m-d7o3sn3qtbax50wep8ra"
+                        },
+                        "me-east-1": {
+                            "release": "33.20201201.3.0",
+                            "image": "m-eb3bcaf3xkdl8bbesjp4"
+                        },
+                        "us-east-1": {
+                            "release": "33.20201201.3.0",
+                            "image": "m-0xie8imuezj6of7584wz"
+                        },
+                        "us-west-1": {
+                            "release": "33.20201201.3.0",
+                            "image": "m-rj93zda388u2hepp7edc"
+                        }
+                    }
+                },
                 "aws": {
                     "regions": {
                         "af-south-1": {

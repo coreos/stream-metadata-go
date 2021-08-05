@@ -17,10 +17,15 @@ func TestParseFCS(t *testing.T) {
 	assert.Equal(t, stream.Stream, "stable")
 	assert.Equal(t, stream.Architectures["x86_64"].Artifacts["metal"].Formats["raw.xz"].Disk.Sha256, "2848b111a6917455686f38a3ce64d2321c33809b9cf796c5f6804b1c02d79d9d")
 	assert.Equal(t, stream.Architectures["x86_64"].Images.Aws.Regions["us-east-2"].Image, "ami-091b0dbc05fe2dc06")
+	assert.Equal(t, stream.Architectures["x86_64"].Images.Aliyun.Regions["eu-west-1"].Image, "m-d7o3sn3qtbax50wep8ra")
 
 	ami, err := stream.GetAMI("x86_64", "us-east-2")
 	assert.Nil(t, err)
 	assert.Equal(t, ami, "ami-091b0dbc05fe2dc06")
+
+	aliyunImage, err := stream.GetAliyunImage("x86_64", "eu-west-1")
+	assert.Nil(t, err)
+	assert.Equal(t, aliyunImage, "m-d7o3sn3qtbax50wep8ra")
 
 	assert.Equal(t, "stable/x86_64", stream.FormatPrefix("x86_64"))
 
@@ -30,6 +35,14 @@ func TestParseFCS(t *testing.T) {
 	assert.Contains(t, err.Error(), "stable/x86_64: No AWS images in region mars-1")
 
 	_, err = stream.GetAMI("aarch64", "us-east-2")
+	assert.NotNil(t, err)
+	assert.Contains(t, err.Error(), "stream:stable does not have architecture 'aarch64'")
+
+	_, err = stream.GetAliyunImage("x86_64", "us-midwest-1")
+	assert.NotNil(t, err)
+	assert.Contains(t, err.Error(), "stable/x86_64: No Aliyun images in region us-midwest-1")
+
+	_, err = stream.GetAliyunImage("aarch64", "us-east-2")
 	assert.NotNil(t, err)
 	assert.Contains(t, err.Error(), "stream:stable does not have architecture 'aarch64'")
 
