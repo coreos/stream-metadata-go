@@ -124,6 +124,7 @@ func (releaseArch *Arch) toStreamArch(rel *Release) stream.Arch {
 
 		if releaseArch.Media.Gcp.Image != nil {
 			cloudImages.Gcp = &stream.GcpImage{
+				Release: rel.Release,
 				Name:    releaseArch.Media.Gcp.Image.Name,
 				Family:  releaseArch.Media.Gcp.Image.Family,
 				Project: releaseArch.Media.Gcp.Image.Project,

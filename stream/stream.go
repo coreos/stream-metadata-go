@@ -76,7 +76,8 @@ type AwsRegionImage = RegionImage
 
 // GcpImage represents a GCP cloud image
 type GcpImage struct {
-	Project string `json:"project,omitempty"`
+	Release string `json:"release"`
+	Project string `json:"project"`
 	Family  string `json:"family,omitempty"`
-	Name    string `json:"name,omitempty"`
+	Name    string `json:"name"`
 }
