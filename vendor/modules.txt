@@ -1,8 +1,5 @@
 # github.com/davecgh/go-spew v1.1.0
 github.com/davecgh/go-spew/spew
-# github.com/google/renameio v1.0.0
-## explicit
-github.com/google/renameio
 # github.com/pmezard/go-difflib v1.0.0
 github.com/pmezard/go-difflib/difflib
 # github.com/stretchr/testify v1.6.1
