@@ -50,4 +50,7 @@ func TestTranslate(t *testing.T) {
 		Architectures: arches,
 	}
 	assert.Equal(t, st.Architectures["x86_64"].Images.Aws.Regions["us-east-2"].Image, usEast2Ami)
+
+	// KubeVirt
+	assert.Equal(t, st.Architectures["x86_64"].Images.KubeVirt.Image, "quay.io/openshift-release-dev/rhcos@sha256:67a81539946ec0397196c145394553b8e0241acf27b14ae9de43bc56e167f773")
 }

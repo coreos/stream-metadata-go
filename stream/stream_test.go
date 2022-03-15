@@ -63,4 +63,7 @@ func TestParseFCS(t *testing.T) {
 	_, err = stream.QueryDisk("nonarch", "", "nosuchthing")
 	assert.NotNil(t, err)
 	assert.Contains(t, err.Error(), "does not have architecture 'nonarch'")
+
+	assert.Equal(t, stream.Architectures["x86_64"].Images.KubeVirt.Image, "quay.io/openshift-release-dev/rhcos@sha256:67a81539946ec0397196c145394553b8e0241acf27b14ae9de43bc56e167f773")
+	assert.Equal(t, stream.Architectures["x86_64"].Artifacts["kubevirt"].Formats["qcow2.xz"].Disk.Sha256, "2be55c5aa1f53eb9a869826dacbab75706ee6bd59185b935ac9be546cc132a85")
 }
