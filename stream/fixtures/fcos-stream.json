@@ -381,11 +381,13 @@
                     }
                 },
                 "gcp": {
+                    "release": "33.20201201.3.0",
                     "project": "fedora-coreos-cloud",
                     "family": "fedora-coreos-stable",
                     "name": "fedora-coreos-33-20201201-3-0-gcp-x86-64"
                 },
                 "kubevirt": {
+                    "release": "33.20211201.3.0",
                     "image": "quay.io/openshift-release-dev/rhcos@sha256:67a81539946ec0397196c145394553b8e0241acf27b14ae9de43bc56e167f773"
                 }
             }
