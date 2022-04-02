@@ -41,7 +41,7 @@ func printAMI(fcosstable stream.Stream) error {
 	if awsimages == nil {
 		return fmt.Errorf("No %s AWS images in stream", targetArch)
 	}
-	var regionVal stream.AwsRegionImage
+	var regionVal stream.SingleImage
 	if regionVal, ok = awsimages.Regions[region]; !ok {
 		return fmt.Errorf("No %s AWS images in region %s", targetArch, region)
 	}
