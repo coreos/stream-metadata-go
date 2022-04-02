@@ -66,11 +66,12 @@ type Images struct {
 
 // ReplicatedImage represents an image in all regions of an AWS-like cloud
 type ReplicatedImage struct {
-	Regions map[string]RegionImage `json:"regions,omitempty"`
+	Regions map[string]SingleImage `json:"regions,omitempty"`
 }
 
-// RegionImage represents an image in a single region of an AWS-like cloud
-type RegionImage struct {
+// SingleImage represents a globally-accessible image or an image in a
+// single region of an AWS-like cloud
+type SingleImage struct {
 	Release string `json:"release"`
 	Image   string `json:"image"`
 }
@@ -79,7 +80,10 @@ type RegionImage struct {
 type AwsImage = ReplicatedImage
 
 // AwsRegionImage is a typedef for backwards compatibility.
-type AwsRegionImage = RegionImage
+type AwsRegionImage = SingleImage
+
+// RegionImage is a typedef for backwards compatibility.
+type RegionImage = SingleImage
 
 // GcpImage represents a GCP cloud image
 type GcpImage struct {
