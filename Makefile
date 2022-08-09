@@ -7,7 +7,7 @@ build: $(BUILD_PKGS)
 .PHONY: build
 
 $(BUILD_PKGS): build-%:
-	cd $* && go build -mod=vendor
+	cd $* && go build
 .PHONY: $(BUILD_PKGS)
 
 test: $(TEST_PKGS)
