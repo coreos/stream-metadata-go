@@ -2,14 +2,14 @@ package stream
 
 import (
 	"encoding/json"
-	"io/ioutil"
+	"os"
 	"testing"
 
 	"github.com/stretchr/testify/assert"
 )
 
 func TestParseFCS(t *testing.T) {
-	d, err := ioutil.ReadFile("fixtures/fcos-stream.json")
+	d, err := os.ReadFile("fixtures/fcos-stream.json")
 	assert.Nil(t, err)
 	stream := Stream{}
 	err = json.Unmarshal(d, &stream)

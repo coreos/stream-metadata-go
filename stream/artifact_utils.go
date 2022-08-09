@@ -4,7 +4,6 @@ import (
 	"crypto/sha256"
 	"fmt"
 	"io"
-	"io/ioutil"
 	"net/http"
 	"net/url"
 	"os"
@@ -63,7 +62,7 @@ func (a *Artifact) Download(destdir string) (string, error) {
 		return "", err
 	}
 	destfile := filepath.Join(destdir, name)
-	w, err := ioutil.TempFile(destdir, ".coreos-artifact-")
+	w, err := os.CreateTemp(destdir, ".coreos-artifact-")
 	if err != nil {
 		return "", err
 	}
