@@ -1,9 +1,18 @@
 PKGS := arch release stream stream/rhcos release/rhcos fedoracoreos
 
-build:
-	for pkg in $(PKGS); do (cd $$pkg && go build -mod=vendor); done
+BUILD_PKGS = $(foreach pkg,$(PKGS),build-$(pkg))
+TEST_PKGS = $(foreach pkg,$(PKGS),test-$(pkg))
+
+build: $(BUILD_PKGS)
 .PHONY: build
 
-test:
-	for pkg in $(PKGS); do (cd $$pkg && go test); done
+$(BUILD_PKGS): build-%:
+	cd $* && go build -mod=vendor
+.PHONY: $(BUILD_PKGS)
+
+test: $(TEST_PKGS)
 .PHONY: test
+
+$(TEST_PKGS): test-%:
+	cd $* && go test
+.PHONY: $(TEST_PKGS)
