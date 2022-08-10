@@ -2,7 +2,7 @@ package release
 
 import (
 	"encoding/json"
-	"io/ioutil"
+	"os"
 	"testing"
 	"time"
 
@@ -15,7 +15,7 @@ const (
 )
 
 func TestParseFCR(t *testing.T) {
-	d, err := ioutil.ReadFile("fixtures/fcos-release.json")
+	d, err := os.ReadFile("fixtures/fcos-release.json")
 	assert.Nil(t, err)
 	release := Release{}
 	err = json.Unmarshal(d, &release)
@@ -25,7 +25,7 @@ func TestParseFCR(t *testing.T) {
 }
 
 func TestParseFCRIndex(t *testing.T) {
-	d, err := ioutil.ReadFile("fixtures/fcos-releases.json")
+	d, err := os.ReadFile("fixtures/fcos-releases.json")
 	assert.Nil(t, err)
 	idx := Index{}
 	err = json.Unmarshal(d, &idx)
@@ -38,7 +38,7 @@ func TestParseFCRIndex(t *testing.T) {
 }
 
 func TestTranslate(t *testing.T) {
-	d, err := ioutil.ReadFile("fixtures/fcos-release.json")
+	d, err := os.ReadFile("fixtures/fcos-release.json")
 	assert.Nil(t, err)
 	rel := Release{}
 	err = json.Unmarshal(d, &rel)

@@ -2,14 +2,14 @@ package stream
 
 import (
 	"encoding/json"
-	"io/ioutil"
+	"os"
 	"testing"
 
 	"github.com/stretchr/testify/assert"
 )
 
 func TestParseFCS(t *testing.T) {
-	d, err := ioutil.ReadFile("fixtures/fcos-stream.json")
+	d, err := os.ReadFile("fixtures/fcos-stream.json")
 	assert.Nil(t, err)
 	stream := Stream{}
 	err = json.Unmarshal(d, &stream)
@@ -66,7 +66,7 @@ func TestParseFCS(t *testing.T) {
 
 	assert.Equal(t, stream.Architectures["x86_64"].Images.KubeVirt, &ContainerImage{
 		Release:   "33.20211201.3.0",
-		Image:     "quay.io/openshift-release-dev/rhcos@latest",
+		Image:     "quay.io/openshift-release-dev/rhcos:latest",
 		DigestRef: "quay.io/openshift-release-dev/rhcos@sha256:67a81539946ec0397196c145394553b8e0241acf27b14ae9de43bc56e167f773",
 	})
 	assert.Equal(t, stream.Architectures["x86_64"].Artifacts["kubevirt"].Formats["qcow2.xz"].Disk.Sha256, "2be55c5aa1f53eb9a869826dacbab75706ee6bd59185b935ac9be546cc132a85")
