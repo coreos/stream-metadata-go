@@ -1,9 +1,16 @@
 # Release notes
 
-## stream-metadata-go 0.4.2 (unreleased)
+## Upcoming stream-metadata-go 0.4.3 (unreleased)
 
 Changes:
 
+
+
+## stream-metadata-go 0.4.2 (2023-06-01)
+
+Changes:
+
+- Drop support for Go 1.17
 - Add release notes doc
 
 
