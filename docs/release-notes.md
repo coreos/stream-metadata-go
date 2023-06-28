@@ -4,6 +4,7 @@
 
 Changes:
 
+- Add support for Hyper-V images
 
 
 ## stream-metadata-go 0.4.2 (2023-06-01)
