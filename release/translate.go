@@ -159,6 +159,13 @@ func (releaseArch *Arch) toStreamArch(rel *Release) stream.Arch {
 		*/
 	}
 
+	if releaseArch.Media.HyperV != nil {
+		artifacts["hyperv"] = stream.PlatformArtifacts{
+			Release: rel.Release,
+			Formats: mapFormats(releaseArch.Media.HyperV.Artifacts),
+		}
+	}
+
 	if releaseArch.Media.Ibmcloud != nil {
 		artifacts["ibmcloud"] = stream.PlatformArtifacts{
 			Release: rel.Release,
