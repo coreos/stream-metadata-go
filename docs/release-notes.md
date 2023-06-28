@@ -1,6 +1,12 @@
 # Release notes
 
-## Upcoming stream-metadata-go 0.4.3 (unreleased)
+## Upcoming stream-metadata-go 0.4.4 (unreleased)
+
+Changes:
+
+
+
+## stream-metadata-go 0.4.3 (2023-06-28)
 
 Changes:
 
