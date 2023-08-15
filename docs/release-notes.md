@@ -4,7 +4,7 @@
 
 Changes:
 
-
+- Add support for AppleHV images
 
 ## stream-metadata-go 0.4.3 (2023-06-28)
 
