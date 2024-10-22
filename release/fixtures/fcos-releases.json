@@ -8,6 +8,13 @@
           "checksum": "113aa27efe1bbcf6324af7423f64ef7deb0acbf21b928faec84bf66a60a5c933"
         }
       ],
+      "oci-images": [
+        {
+          "architecture": "x86_64",
+          "image": "quay.io/fedora/fedora-coreos:stable",
+          "digest-ref": "quay.io/fedora/fedora-coreos@sha256:460576931cf4ce59afe432ea266234f9d34fa77f8ca3087282084bc3a7324632"
+        }
+      ],
       "version": "31.20200108.3.0",
       "metadata": "https://builds.coreos.fedoraproject.org/prod/streams/stable/builds/31.20200108.3.0/release.json"
     },
