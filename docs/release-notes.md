@@ -4,6 +4,8 @@
 
 Changes:
 
+- Bump minimum supported Go version to 1.22
+
 ## stream-metadata-go 0.4.4 (2023-11-28)
 
 Changes:
