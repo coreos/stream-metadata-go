@@ -249,7 +249,11 @@
           }
         }
       },
-      "commit": "cad80088392fe43bd3cadf0481c3267f199afa7d9f83bc03937ffdbf5ebbc6da"
+      "commit": "cad80088392fe43bd3cadf0481c3267f199afa7d9f83bc03937ffdbf5ebbc6da",
+      "oci-image": {
+        "image": "quay.io/fedora/fedora-coreos:stable",
+        "digest-ref": "quay.io/fedora/fedora-coreos@sha256:460576931cf4ce59afe432ea266234f9d34fa77f8ca3087282084bc3a7324632"
+      }
     }
   }
 }

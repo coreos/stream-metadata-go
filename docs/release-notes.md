@@ -5,6 +5,8 @@
 Changes:
 
 - Bump minimum supported Go version to 1.22
+- Add `Arch.OciImage` field to release metadata containing base OS OCI image
+- Add `OciImages` field to release index containing base OS OCI images
 
 ## stream-metadata-go 0.4.4 (2023-11-28)
 

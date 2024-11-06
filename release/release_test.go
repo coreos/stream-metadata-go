@@ -22,6 +22,8 @@ func TestParseFCR(t *testing.T) {
 	assert.Nil(t, err)
 	assert.Equal(t, release.Stream, "stable")
 	assert.Equal(t, release.Architectures["x86_64"].Media.Aws.Images["us-east-2"].Image, usEast2Ami)
+	assert.Equal(t, release.Architectures["x86_64"].OciImage.Image, "quay.io/fedora/fedora-coreos:stable")
+	assert.Equal(t, release.Architectures["x86_64"].OciImage.DigestRef, "quay.io/fedora/fedora-coreos@sha256:460576931cf4ce59afe432ea266234f9d34fa77f8ca3087282084bc3a7324632")
 }
 
 func TestParseFCRIndex(t *testing.T) {
@@ -35,6 +37,8 @@ func TestParseFCRIndex(t *testing.T) {
 	assert.Equal(t, release.Version, "31.20200108.3.0")
 	assert.Equal(t, release.Commits[0].Architecture, "x86_64")
 	assert.Equal(t, release.Commits[0].Checksum, "113aa27efe1bbcf6324af7423f64ef7deb0acbf21b928faec84bf66a60a5c933")
+	assert.Equal(t, release.OciImages[0].Image, "quay.io/fedora/fedora-coreos:stable")
+	assert.Equal(t, release.OciImages[0].DigestRef, "quay.io/fedora/fedora-coreos@sha256:460576931cf4ce59afe432ea266234f9d34fa77f8ca3087282084bc3a7324632")
 }
 
 func TestTranslate(t *testing.T) {
