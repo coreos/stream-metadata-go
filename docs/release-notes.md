@@ -4,7 +4,7 @@
 
 Changes:
 
-- Change 1
+- Add support for cloud marketplace images
 
 ## stream-metadata-go 0.4.9 (2025-07-18)
 
