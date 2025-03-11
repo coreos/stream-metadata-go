@@ -30,11 +30,11 @@ jobs:
     runs-on: ${{ matrix.os }}
     steps:
     - name: Set up Go 1.x
-      uses: actions/setup-go@v4
+      uses: actions/setup-go@v5
       with:
         go-version: ${{ matrix.go-version }}
     - name: Check out repository
-      uses: actions/checkout@v3
+      uses: actions/checkout@v4
     - name: Check modules
       run: go mod verify
     - name: Build
@@ -44,7 +44,7 @@ jobs:
       shell: bash
       run: make test
     - name: Run linter
-      uses: golangci/golangci-lint-action@v3
+      uses: golangci/golangci-lint-action@v6
       if: runner.os == 'Linux'
       with:
         version: v1.61.0
