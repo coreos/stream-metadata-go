@@ -1,6 +1,12 @@
 # Release notes
 
-## Upcoming stream-metadata-go 0.4.6 (unreleased)
+## Upcoming stream-metadata-go 0.4.7 (unreleased)
+
+## stream-metadata-go 0.4.6 (2025-03-25)
+
+Changes:
+
+- Add support for Hetzner images
 
 Changes:
 
