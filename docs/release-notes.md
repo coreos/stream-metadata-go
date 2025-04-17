@@ -2,6 +2,8 @@
 
 ## Upcoming stream-metadata-go 0.4.7 (unreleased)
 
+- Add support for AWS Windows License Included images
+
 ## stream-metadata-go 0.4.6 (2025-03-25)
 
 Changes:
