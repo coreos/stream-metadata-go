@@ -2,6 +2,10 @@
 
 ## Upcoming stream-metadata-go 0.4.8 (unreleased)
 
+Changes:
+
+- Add support for ProxmoxVE images
+
 ## stream-metadata-go 0.4.7 (2025-04-28)
 
 Changes:
