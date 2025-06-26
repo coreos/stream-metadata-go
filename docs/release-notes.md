@@ -4,7 +4,7 @@
 
 Changes:
 
-- change1
+- Add support for Oracle Cloud Infrastucture images
 
 ## stream-metadata-go 0.4.8 (2025-06-18)
 
