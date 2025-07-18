@@ -44,6 +44,7 @@ jobs:
       shell: bash
       run: make test
     - name: Check Go formatting (gofmt)
+      if: runner.os == 'Linux'
       shell: bash
       run: |
         GO_FILES=$(find . -name '*.go' -not -path "./vendor/*")
