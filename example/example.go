@@ -25,7 +25,7 @@ func downloadISO(fcosstable stream.Stream) error {
 	fmt.Printf("Downloading %s\n", iso.Location)
 	path, err := iso.Download(".")
 	if err != nil {
-		return fmt.Errorf("Failed to download %s: %w", iso.Location, err)
+		return fmt.Errorf("failed to download %s: %w", iso.Location, err)
 	}
 	fmt.Printf("Downloaded %s\n", path)
 
@@ -35,15 +35,15 @@ func downloadISO(fcosstable stream.Stream) error {
 func printAMI(fcosstable stream.Stream) error {
 	arch, ok := fcosstable.Architectures[targetArch]
 	if !ok {
-		return fmt.Errorf("No %s architecture in stream", targetArch)
+		return fmt.Errorf("no %s architecture in stream", targetArch)
 	}
 	awsimages := arch.Images.Aws
 	if awsimages == nil {
-		return fmt.Errorf("No %s AWS images in stream", targetArch)
+		return fmt.Errorf("no %s AWS images in stream", targetArch)
 	}
 	var regionVal stream.SingleImage
 	if regionVal, ok = awsimages.Regions[region]; !ok {
-		return fmt.Errorf("No %s AWS images in region %s", targetArch, region)
+		return fmt.Errorf("no %s AWS images in region %s", targetArch, region)
 	}
 	fmt.Printf("%s\n", regionVal.Image)
 
@@ -59,11 +59,12 @@ func run() error {
 	if err != nil {
 		return err
 	}
-	if arg == "aws-ami" {
+	switch arg {
+	case "aws-ami":
 		return printAMI(*fcosstable)
-	} else if arg == "download-iso" {
+	case "download-iso":
 		return downloadISO(*fcosstable)
-	} else {
+	default:
 		return fmt.Errorf("invalid operation %s", arg)
 	}
 }
