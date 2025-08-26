@@ -34,7 +34,7 @@ jobs:
       with:
         go-version: ${{ matrix.go-version }}
     - name: Check out repository
-      uses: actions/checkout@v4
+      uses: actions/checkout@v5
     - name: Check modules
       run: go mod verify
     - name: Build
