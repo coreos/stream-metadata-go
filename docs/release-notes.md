@@ -30,6 +30,10 @@ Changes:
 
 - Add support for Hetzner images
 
+Changes:
+
+- Don't serialize missing OSTree commits in both release and release index metadata
+
 ## stream-metadata-go 0.4.5 (2024-11-05)
 
 Changes:
