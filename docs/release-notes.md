@@ -1,10 +1,13 @@
 # Release notes
 
-## Upcoming stream-metadata-go 0.4.10 (unreleased)
+## Upcoming stream-metadata-go 0.4.11 (unreleased)
+
+## stream-metadata-go 0.4.10 (2025-09-14)
 
 Changes:
 
 - Add support for cloud marketplace images
+- Don't serialize missing OSTree commits in both release and release index metadata
 
 ## stream-metadata-go 0.4.9 (2025-07-18)
 
@@ -29,10 +32,6 @@ Changes:
 Changes:
 
 - Add support for Hetzner images
-
-Changes:
-
-- Don't serialize missing OSTree commits in both release and release index metadata
 
 ## stream-metadata-go 0.4.5 (2024-11-05)
 
