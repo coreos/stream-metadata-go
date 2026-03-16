@@ -2,6 +2,10 @@
 
 ## Upcoming stream-metadata-go 0.4.11 (unreleased)
 
+Changes:
+
+- Add support for NVIDIA Bluefield images
+
 ## stream-metadata-go 0.4.10 (2025-09-14)
 
 Changes:
